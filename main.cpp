@@ -9,8 +9,8 @@ using namespace std;
 
 int main()
 {
-    Point p(5, 4, '*');
     system("mode con cols=100 lines=25");
+    Point p(5, 4, '*');
 
     Sleep( 100 );
     HorisontalLine UpLine, DownLine;
@@ -23,7 +23,7 @@ int main()
     UpLine.Draw();      DownLine.Draw();
     LeftLine.Draw();    RightLine.Draw();
 
-    Snake snake(p, 4, RIGHT);
+    Snake snake(p, 4, DOWN);
     snake.Draw();
 
  return 0;

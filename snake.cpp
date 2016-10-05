@@ -7,8 +7,9 @@ Snake::Snake()
 
 }
 
-Snake::Snake( Point tail, int lenght, Direction direction)
+Snake::Snake( Point tail, int lenght, Direction _direction)
 {
+    direction = _direction;
     for( int i = 0; i < lenght; i++){
         Point p(tail);
         p.Move(i, direction);

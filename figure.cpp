@@ -2,7 +2,7 @@
 
 Figure::Figure()
 {
-
+    first = NULL;
 }
 
 void Figure::Draw()
