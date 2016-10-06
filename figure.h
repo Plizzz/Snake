@@ -1,20 +1,16 @@
 #include <point.h>
+#include <vector>
 #ifndef FIGURE_H
 #define FIGURE_H
 
-struct link
-{
-    Point pnt;
-    link *next;
-};
+using namespace std;
 
 class Figure
 {
 protected:
-    link* first;
+    vector<Point> pVec;
 public:
     Figure();
-    void Draw();
 };
 
 #endif // FIGURE_H

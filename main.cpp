@@ -10,22 +10,18 @@ using namespace std;
 int main()
 {
     system("mode con cols=100 lines=25");
-    Point p(5, 4, '*');
-
-    Sleep( 100 );
-    HorisontalLine UpLine, DownLine;
-    VerticalLine LeftLine, RightLine;
 
     // отрисовка рамочки
-    UpLine.addLine(0, 98, 0, '+');   DownLine.addLine(0, 98, 24, '+');
-    LeftLine.addLine(0, 24, 0, '+'); RightLine.addLine(0, 24, 98, '+');
+    HorisontalLine upLine(0, 99, 0, '+');   HorisontalLine downLine(0, 99, 24, '+');
+    VerticalLine leftline(0, 24, 0, '+');      VerticalLine rightLine(0, 24, 99, '+');
 
-    UpLine.Draw();      DownLine.Draw();
-    LeftLine.Draw();    RightLine.Draw();
-
-    Snake snake(p, 4, DOWN);
-    snake.Draw();
-
- return 0;
+    // отрисовка змейки
+    Point p1(3, 4, '*');
+    Snake snake(p1, 5, RIGHT);
+    for(int i = 0; i < 60; i++){
+        snake.Move();
+        Sleep( 100 );
+    }
+    return 0;
 }
 

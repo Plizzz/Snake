@@ -9,8 +9,9 @@ class Snake : public Figure
 private:
     Direction direction;
 public:
-    Snake();
     Snake(Point tail, int lenght, Direction _direction);
+    void Move();
+    Point GetNextPoint();
 };
 
 #endif // SNAKE_H

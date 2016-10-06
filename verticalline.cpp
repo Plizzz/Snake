@@ -1,23 +1,15 @@
-#include <iostream>
-#include <windows.h>
 #include "verticalline.h"
 
 using namespace std;
 
-VerticalLine::VerticalLine()
+VerticalLine::VerticalLine(int yUp, int yDown, int x, char s)   // добавление элемента
 {
-    first = NULL;
-
-}
-
-void VerticalLine::addLine(int yDown, int yUp, int x, char s)   // добавление элемента
-{
-    for( int y = yDown; y <= yUp; y++){
-        link* newlink = new link;           // выделяем память
-        newlink->pnt.coord.X = x;
-        newlink->pnt.coord.Y = y;
-        newlink->pnt.sym = s;
-        newlink->next = first;              // запоминаем значение first
-        first = newlink;                    // first теперь указывает на новый элемент
+    for( int y = yUp; y <= yDown; y++){
+        Point p(x, y, s);
+        pVec.push_back(p);
+    }
+    for(int i = 0; i < pVec.size(); i++){
+        Point p = pVec[i];
+        p.Draw();
     }
 }

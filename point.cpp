@@ -13,27 +13,37 @@ Point::Point(Point *p)
     sym = p->sym;
 }
 
-Point::Point(int x, int y, char s){
+Point::Point(int x, int y, char s)
+{
     coord.X = x;
     coord.Y = y;
     sym = s;
 }
-void Point::Draw(){
+
+void Point::Draw()
+{
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
     cout << sym;
 }
+
+void Point::Clear()
+{
+    sym = ' ';
+    Draw();
+}
+
 void Point::Move(int offset, Direction direction)
 {
-    if(direction == RIGHT){
+    if(direction == RIGHT)
         coord.X += offset;
-    }
-    else if(direction == LEFT){
+
+    else if(direction == LEFT)
         coord.X -= offset;
-    }
-    else if(direction == UP){
+
+    else if(direction == UP)
         coord.Y -= offset;
-    }
-    else if(direction == DOWN){
+
+    else if(direction == DOWN)
         coord.Y += offset;
-    }
+
 }

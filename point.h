@@ -19,6 +19,7 @@ public:
     Point(Point *p);
     Point(int x, int y, char s);
     void Draw();
+    void Clear();
     void Move(int offset, Direction direction);
 };
 
