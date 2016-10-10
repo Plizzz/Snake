@@ -6,7 +6,7 @@
 
 class Snake : public Figure
 {
-private:
+public:
     Direction direction;
 public:
     Snake(Point tail, int lenght, Direction _direction);

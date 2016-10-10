@@ -1,5 +1,6 @@
 #include <iostream>
 #include <windows.h>
+#include <conio.h>
 #include "point.h"
 #include "horisontalline.h"
 #include "verticalline.h"
@@ -18,9 +19,37 @@ int main()
     // отрисовка змейки
     Point p1(3, 4, '*');
     Snake snake(p1, 5, RIGHT);
-    for(int i = 0; i < 60; i++){
+    int input1;
+    int input2;
+    while(true){
         snake.Move();
-        Sleep( 100 );
+        Sleep(100);
+        while(_kbhit()){
+            input1 = _getch();
+            if( input1 == 224 ){
+                input2 = _getch();
+                switch(input2)
+                {
+                case 72: snake.direction = UP;
+                    snake.Move();
+                    Sleep( 100 );
+                    break;
+                case 80: snake.direction = DOWN;
+                    snake.Move();
+                    Sleep( 100 );
+                    break;
+                case 75: snake.direction = LEFT;
+                    snake.Move();
+                    Sleep( 100 );
+                    break;
+                case 77: snake.direction = RIGHT;
+                    snake.Move();
+                    Sleep( 100 );
+                    break;
+                default: break;
+                }
+            }
+        }
     }
     return 0;
 }
