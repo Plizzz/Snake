@@ -1,4 +1,5 @@
 #include <windows.h>
+
 #ifndef POINT_H
 #define POINT_H
 
@@ -18,6 +19,7 @@ public:
     Point();
     Point(Point *p);
     Point(int x, int y, char s);
+    bool IsHit(Point p);
     void Draw();
     void Clear();
     void Move(int offset, Direction direction);

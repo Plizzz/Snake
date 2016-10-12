@@ -47,3 +47,8 @@ void Point::Move(int offset, Direction direction)
         coord.Y += offset;
 
 }
+
+bool Point::IsHit(Point p)
+{
+    return p.coord.X == coord.X && p.coord.Y == coord.Y;
+}

@@ -5,6 +5,7 @@
 #include "horisontalline.h"
 #include "verticalline.h"
 #include "snake.h"
+#include "foodcreator.h"
 
 using namespace std;
 
@@ -19,36 +20,21 @@ int main()
     // отрисовка змейки
     Point p1(3, 4, '*');
     Snake snake(p1, 5, RIGHT);
-    int input1;
-    int input2;
+
+    Foodcreator FoodCreator(101, 25, '$');
+    Point food = FoodCreator.CreateFood();
+    food.Draw();
+    int input = 0;
+
     while(true){
-        snake.Move();
+        if(snake.Eat(food)){
+            food = FoodCreator.CreateFood();
+            food.Draw();
+        }else
+            snake.Move();
         Sleep(100);
         while(_kbhit()){
-            input1 = _getch();
-            if( input1 == 224 ){
-                input2 = _getch();
-                switch(input2)
-                {
-                case 72: snake.direction = UP;
-                    snake.Move();
-                    Sleep( 100 );
-                    break;
-                case 80: snake.direction = DOWN;
-                    snake.Move();
-                    Sleep( 100 );
-                    break;
-                case 75: snake.direction = LEFT;
-                    snake.Move();
-                    Sleep( 100 );
-                    break;
-                case 77: snake.direction = RIGHT;
-                    snake.Move();
-                    Sleep( 100 );
-                    break;
-                default: break;
-                }
-            }
+            snake.HandleKey(input);
         }
     }
     return 0;

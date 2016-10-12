@@ -1,4 +1,5 @@
 #include "snake.h"
+#include <conio.h>
 
 using namespace std;
 
@@ -36,4 +37,42 @@ Point Snake::GetNextPoint()
     Point nextPoint(head);
     nextPoint.Move(1, direction);
     return nextPoint;
+}
+void Snake::HandleKey(int input1)
+{
+    input1 = _getch();
+    if( input1 == 224 ){
+        int input2 = _getch();
+        switch(input2)
+        {
+        case 72: direction = UP;
+            Move();
+            Sleep( 100 );
+            break;
+        case 80: direction = DOWN;
+            Move();
+            Sleep( 100 );
+            break;
+        case 75: direction = LEFT;
+            Move();
+            Sleep( 100 );
+            break;
+        case 77: direction = RIGHT;
+            Move();
+            Sleep( 100 );
+            break;
+        default: break;
+        }
+    }
+}
+
+bool Snake::Eat(Point food)
+{
+    Point head = GetNextPoint();
+    if(head.IsHit(food)){
+        food.sym = head.sym;
+        pVec.push_back(food);
+        return true;
+    }else
+        return false;
 }
