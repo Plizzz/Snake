@@ -8,9 +8,5 @@ HorisontalLine::HorisontalLine(int xLeft, int xRight, int y, char s)   // доб
         Point p(x, y, s);
         pVec.push_back(p);
     }
-    for(int i = 0; i < pVec.size(); i++){
-        Point p = pVec[i];
-        p.Draw();
-    }
 }
 

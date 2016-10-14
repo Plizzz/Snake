@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     verticalline.cpp \
     figure.cpp \
     snake.cpp \
-    foodcreator.cpp
+    foodcreator.cpp \
+    walls.cpp
 
 HEADERS += \
     horisontalline.h \
@@ -17,5 +18,6 @@ HEADERS += \
     figure.h \
     snake.h \
     foodcreator.h \
-    point.h
+    point.h \
+    walls.h
 

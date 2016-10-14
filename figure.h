@@ -11,6 +11,9 @@ protected:
     vector<Point> pVec;
 public:
     Figure();
+    void Draw();
+    bool IsHit(Figure figure);
+    bool IsHit(Point point);
 };
 
 #endif // FIGURE_H

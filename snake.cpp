@@ -76,3 +76,12 @@ bool Snake::Eat(Point food)
     }else
         return false;
 }
+
+bool Snake::IsHitTail()
+{
+    Point head = pVec.back();
+    for( int i = 0; i < pVec.size()-2; i++)
+        if( head.IsHit(pVec[i]) )
+            return true;
+    return false;
+}

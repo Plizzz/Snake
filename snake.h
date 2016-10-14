@@ -14,6 +14,7 @@ public:
     Point GetNextPoint();
     void HandleKey(int input1);
     bool Eat(Point food);
+    bool IsHitTail();
 };
 
 #endif // SNAKE_H

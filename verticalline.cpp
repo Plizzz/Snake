@@ -8,8 +8,4 @@ VerticalLine::VerticalLine(int yUp, int yDown, int x, char s)   // добавл�
         Point p(x, y, s);
         pVec.push_back(p);
     }
-    for(int i = 0; i < pVec.size(); i++){
-        Point p = pVec[i];
-        p.Draw();
-    }
 }
